@@ -1,0 +1,36 @@
+{
+  "name": "yireo-training/magento2-example-dealers",
+  "type": "magento2-module",
+  "version": "0.0.1",
+  "license": "OSL-3.0",
+  "description": "Magento 2 module demonstrating a MVC-structure for displaying dealers",
+  "keywords": [
+    "composer-installer",
+    "magento"
+  ],
+  "authors": [
+    {
+      "name": "Jisse Reitsma (Yireo)",
+      "email": "jisse@yireo.com"
+    }
+  ],
+  "require": {
+    "magento/framework": "*",
+    "php": ">=7.0.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*",
+    "composer/composer": "*@dev"
+  },
+  "suggest": {
+    "yireo/magento2-example-dealers-storefront": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Yireo\\ExampleDealers\\": ""
+    },
+    "files": [
+      "registration.php"
+    ]
+  }
+}

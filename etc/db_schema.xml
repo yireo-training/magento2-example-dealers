@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="example_dealers" resource="default" engine="innodb" comment="Example listing of dealers">
+        <column xsi:type="int" name="id" padding="11" unsigned="true" nullable="false" identity="true" comment="Dealer ID"/>
+        <column xsi:type="smallint" name="store_id" padding="5" unsigned="true" nullable="false" default="0" comment="Store ID"/>
+        <column xsi:type="text" name="name" comment="Name"/>
+        <column xsi:type="blob" name="address" comment="Address"/>
+        <column xsi:type="datetime" name="created_at" on_update="false" nullable="true" comment="Created at"/>
+        <column xsi:type="datetime" name="modified_at" on_update="false" nullable="true" comment="Modified at"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+
+        <index referenceId="EXAMPLE_DEALERS_PRIMARY_KEY" indexType="btree">
+            <column name="id"/>
+        </index>
+        <index referenceId="EXAMPLE_DEALERS_STORE_ID" indexType="btree">
+            <column name="store_id"/>
+        </index>
+    </table>
+</schema>
