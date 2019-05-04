@@ -4,12 +4,13 @@ declare(strict_types=1);
 namespace Yireo\ExampleDealers\Model;
 
 use Exception;
-use Magento\Framework\Api\Search\SearchCriteriaInterface;
-use Magento\Framework\Api\Search\SearchResultInterface;
 
+use Magento\Framework\Api\Search\SearchCriteriaInterface;
 use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
+
 use Magento\Framework\Exception\AlreadyExistsException;
 use Magento\Framework\Exception\NoSuchEntityException;
+
 use Yireo\ExampleDealers\Api\Data\DealerInterface;
 use Yireo\ExampleDealers\Api\Data\DealerSearchResultsInterface;
 use Yireo\ExampleDealers\Api\Data\DealerSearchResultsInterfaceFactory;
@@ -17,12 +18,9 @@ use Yireo\ExampleDealers\Api\DealerRepositoryInterface;
 use Yireo\ExampleDealers\Api\DealerSearchCriteriaBuilderInterface;
 
 use Yireo\ExampleDealers\Model\ResourceModel\Dealer as ResourceModel;
-use Yireo\ExampleDealers\Model\ResourceModel\Dealer\Collection;
 use Yireo\ExampleDealers\Model\ResourceModel\Dealer\CollectionFactory;
 use Yireo\ExampleDealers\Model\Dealer as Model;
 use Yireo\ExampleDealers\Model\DealerFactory as ModelFactory;
-use Yireo\ExampleDealers\Model\DealerSearchCriteriaBuilder;
-use Yireo\ExampleDealers\Model\DealerSearchCriteriaBuilderFactory;
 
 /**
  * Class DealerRepository
@@ -54,6 +52,7 @@ class DealerRepository implements DealerRepositoryInterface
      * @var CollectionProcessorInterface
      */
     private $collectionProcessor;
+
     /**
      * @var DealerSearchResultsInterfaceFactory
      */
@@ -95,7 +94,7 @@ class DealerRepository implements DealerRepositoryInterface
     {
         /** @var Model $model */
         $model = $this->modelFactory->create();
-        $model->load($id);
+        $this->resourceModel->load($model, $id, 'id');
 
         if (!$model->getId()) {
             throw new NoSuchEntityException(__('The dealer with ID "%1" does not exist.', $id));
