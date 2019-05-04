@@ -4,12 +4,12 @@ declare(strict_types=1);
 namespace Yireo\ExampleDealers\Api;
 
 use Magento\Framework\Api\Search\SearchCriteriaInterface;
-use Magento\Framework\Api\SearchResultsInterface;
 use Yireo\ExampleDealers\Api\Data\DealerInterface;
 use Yireo\ExampleDealers\Api\Data\DealerSearchResultsInterface;
 
 /**
  * Interface DealerRepositoryInterface
+ *
  * @package Yireo\ExampleDealers\Api
  */
 interface DealerRepositoryInterface

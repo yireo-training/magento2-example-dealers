@@ -5,7 +5,11 @@ namespace Yireo\ExampleDealers\Api\Data;
 
 use Magento\Framework\Api\SearchResultsInterface;
 
-
+/**
+ * Interface DealerSearchResultsInterface
+ *
+ * @package Yireo\ExampleDealers\Api\Data
+ */
 interface DealerSearchResultsInterface extends SearchResultsInterface
 {
     /**

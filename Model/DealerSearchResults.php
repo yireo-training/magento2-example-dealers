@@ -8,6 +8,7 @@ use Yireo\ExampleDealers\Api\Data\DealerSearchResultsInterface;
 
 /**
  * Class DealerSearchResults
+ *
  * @package Yireo\ExampleDealers\Model
  */
 class DealerSearchResults extends SearchResults implements DealerSearchResultsInterface
