@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <preference for="Yireo\ExampleDealers\Api\DealerRepositoryInterface" type="Yireo\ExampleDealers\Model\DealerRepository"/>
-    <preference for="Yireo\ExampleDealers\Api\DealerSearchCriteriaBuilderInterface" type="Yireo\ExampleDealers\Model\DealerSearchCriteriaBuilder"/>
+    <preference for="Yireo\ExampleDealers\Api\DealerRepositoryInterface" type="Yireo\ExampleDealers\Repository\DealerRepository"/>
+    <preference for="Yireo\ExampleDealers\Api\DealerSearchCriteriaBuilderInterface" type="Yireo\ExampleDealers\Repository\DealerSearchCriteriaBuilder"/>
     <preference for="Yireo\ExampleDealers\Api\Data\DealerInterface" type="Yireo\ExampleDealers\Model\Dealer"/>
-    <preference for="Yireo\ExampleDealers\Api\Data\DealerSearchResultsInterface" type="Yireo\ExampleDealers\Model\DealerSearchResults" />
+    <preference for="Yireo\ExampleDealers\Api\Data\DealerSearchResultsInterface" type="Yireo\ExampleDealers\Repository\DealerSearchResults" />
 </config>

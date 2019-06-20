@@ -16,6 +16,8 @@ use PHPUnit\Framework\TestCase;
  */
 class ModuleTest extends TestCase
 {
+    const MODULE_NAME = 'Yireo_ExampleDealers';
+
     /**
      * Test if the module is registered
      */
@@ -23,7 +25,7 @@ class ModuleTest extends TestCase
     {
         $registrar = new ComponentRegistrar();
         $paths = $registrar->getPaths(ComponentRegistrar::MODULE);
-        $this->assertArrayHasKey('Yireo_ExampleDealers', $paths);
+        $this->assertArrayHasKey(self::MODULE_NAME, $paths);
     }
 
     /**
@@ -33,6 +35,22 @@ class ModuleTest extends TestCase
     {
         $objectManager = Bootstrap::getObjectManager();
         $moduleList = $objectManager->create(ModuleList::class);
-        $this->assertTrue($moduleList->has('Yireo_ExampleDealers'));
+        $this->assertTrue($moduleList->has(self::MODULE_NAME));
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

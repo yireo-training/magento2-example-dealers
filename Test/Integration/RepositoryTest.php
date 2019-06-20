@@ -3,16 +3,14 @@ declare(strict_types=1);
 
 namespace Yireo\ExampleDealers\Test\Integration;
 
-use Magento\Framework\Component\ComponentRegistrar;
-use Magento\Framework\Module\ModuleList;
-
 use Magento\TestFramework\Helper\Bootstrap;
 
 use Magento\TestFramework\ObjectManager;
 use PHPUnit\Framework\TestCase;
+
 use Yireo\ExampleDealers\Api\Data\DealerInterface;
 use Yireo\ExampleDealers\Api\DealerRepositoryInterface;
-use Yireo\ExampleDealers\Model\DealerRepository;
+use Yireo\ExampleDealers\Repository\DealerRepository;
 
 /**
  * Class ModuleTest
