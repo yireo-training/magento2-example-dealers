@@ -37,11 +37,10 @@ class Dealer extends AbstractModel implements DealerInterface
      * Set the name
      *
      * @param string $name
-     * @return mixed
      */
     public function setName(string $name)
     {
-        return $this->setData('name', $name);
+        $this->setData('name', $name);
     }
 
     /**
@@ -58,10 +57,9 @@ class Dealer extends AbstractModel implements DealerInterface
      * Set the name
      *
      * @param string $address
-     * @return mixed
      */
     public function setAddress(string $address)
     {
-        return $this->setData('address', $address);
+        $this->setData('address', $address);
     }
 }

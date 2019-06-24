@@ -26,7 +26,6 @@ interface DealerInterface
 
     /**
      * @param string $name
-     * @return mixed
      */
     public function setName(string $name);
 
