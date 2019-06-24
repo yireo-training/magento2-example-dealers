@@ -39,4 +39,16 @@ interface DealerInterface
      * @return mixed
      */
     public function setAddress(string $address);
+
+    /**
+     * @return array
+     */
+    public function getData();
+
+    /**
+     * @param string $name
+     * @param mixed $value
+     * @return mixed
+     */
+    public function setData($name, $value = null);
 }

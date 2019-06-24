@@ -3,5 +3,6 @@
     <preference for="Yireo\ExampleDealers\Api\DealerRepositoryInterface" type="Yireo\ExampleDealers\Repository\DealerRepository"/>
     <preference for="Yireo\ExampleDealers\Api\DealerSearchCriteriaBuilderInterface" type="Yireo\ExampleDealers\Repository\DealerSearchCriteriaBuilder"/>
     <preference for="Yireo\ExampleDealers\Api\Data\DealerInterface" type="Yireo\ExampleDealers\Model\Dealer"/>
+    <preference for="Yireo\ExampleDealers\Api\Data\DealerCollectionInterface" type="Yireo\ExampleDealers\Model\ResourceModel\Dealer\Collection"/>
     <preference for="Yireo\ExampleDealers\Api\Data\DealerSearchResultsInterface" type="Yireo\ExampleDealers\Repository\DealerSearchResults" />
 </config>
