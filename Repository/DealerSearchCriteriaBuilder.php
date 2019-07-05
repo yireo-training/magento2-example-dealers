@@ -12,4 +12,8 @@ use Yireo\ExampleDealers\Api\DealerSearchCriteriaBuilderInterface;
  */
 class DealerSearchCriteriaBuilder extends SearchCriteriaBuilder implements DealerSearchCriteriaBuilderInterface
 {
+    public function addSortByPrimaryKey()
+    {
+
+    }
 }
