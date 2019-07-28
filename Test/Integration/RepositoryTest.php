@@ -47,12 +47,12 @@ class RepositoryTest extends TestCase
     {
         $this->assertInstanceOf(DealerRepository::class, $this->repository);
         $items = $this->repository->getAll();
-        $this->assertEmpty($items);
+        $originalCount = count($items);
 
         $this->createDealer('John Doe', 'Testing Street 1');
         $this->createDealer('Jane Doe', 'Testing Street 2');
         $dealers = $this->repository->getAll();
-        $this->assertCount(2, $dealers);
+        $this->assertCount($originalCount + 2, $dealers);
     }
 
     /**
@@ -65,11 +65,11 @@ class RepositoryTest extends TestCase
     {
         $this->assertInstanceOf(DealerRepository::class, $this->repository);
         $items = $this->repository->getAll();
-        $this->assertEmpty($items);
+        $originalCount = count($items);
 
         $dealer = $this->createDealer('Kermit', 'Frog Street 1');
         $dealers = $this->repository->getAll();
-        $this->assertCount(1, $dealers);
+        $this->assertCount($originalCount + 1, $dealers);
 
         $this->assertNotEmpty($dealer->getId());
         $this->assertTrue($dealer->getId() > 0);
@@ -89,20 +89,7 @@ class RepositoryTest extends TestCase
 
         $this->repository->delete($newestDealer);
         $items = $this->repository->getAll();
-        $this->assertEmpty($items);
-    }
-
-    /**
-     * Test if the repository returns multiple items
-     *
-     * @magentoDbIsolation enabled
-     * @magentoAppIsolation enabled
-     */
-    public function testIfRepositoryReturnsZeroItems()
-    {
-        $this->assertInstanceOf(DealerRepository::class, $this->repository);
-        $items = $this->repository->getAll();
-        $this->assertEmpty($items);
+        $this->assertCount($originalCount, $items);
     }
 
     /**
