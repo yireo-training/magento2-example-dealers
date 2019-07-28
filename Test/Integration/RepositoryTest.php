@@ -14,7 +14,7 @@ use Yireo\ExampleDealers\Repository\DealerRepository;
 
 /**
  * Class ModuleTest
- * @package Yireo\ExampleDealers\Test\Functional
+ * @package Yireo\ExampleDealers\Test\Integration
  */
 class RepositoryTest extends TestCase
 {

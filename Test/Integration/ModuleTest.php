@@ -12,7 +12,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Class ModuleTest
- * @package Yireo\ExampleDealers\Test\Functional
+ * @package Yireo\ExampleDealers\Test\Integration
  */
 class ModuleTest extends TestCase
 {
@@ -38,19 +38,3 @@ class ModuleTest extends TestCase
         $this->assertTrue($moduleList->has(self::MODULE_NAME));
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
