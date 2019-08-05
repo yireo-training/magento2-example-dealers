@@ -17,6 +17,7 @@ use Yireo\ExampleDealers\Api\Data\DealerSearchResultsInterfaceFactory;
 use Yireo\ExampleDealers\Api\DealerRepositoryInterface;
 use Yireo\ExampleDealers\Api\DealerSearchCriteriaBuilderInterface;
 
+use Yireo\ExampleDealers\Filter\Name;
 use Yireo\ExampleDealers\Model\ResourceModel\Dealer as ResourceModel;
 use Yireo\ExampleDealers\Model\ResourceModel\Dealer\CollectionFactory;
 use Yireo\ExampleDealers\Model\Dealer as Model;
@@ -57,15 +58,20 @@ class DealerRepository implements DealerRepositoryInterface
      * @var DealerSearchResultsInterfaceFactory
      */
     private $dealerSearchResultsFactory;
+    /**
+     * @var Name
+     */
+    private $filterName;
 
     /**
      * DealerRepository constructor.
      * @param ResourceModel $resourceModel
-     * @param DealerFactory $modelFactory
+     * @param ModelFactory $modelFactory
      * @param CollectionFactory $collectionFactory
      * @param DealerSearchCriteriaBuilderFactory $dealerSearchCriteriaBuilderFactory
      * @param CollectionProcessorInterface $collectionProcessor
      * @param DealerSearchResultsInterfaceFactory $dealerSearchResultsFactory
+     * @param Name $filterName
      */
     public function __construct(
         ResourceModel $resourceModel,
@@ -73,7 +79,8 @@ class DealerRepository implements DealerRepositoryInterface
         CollectionFactory $collectionFactory,
         DealerSearchCriteriaBuilderFactory $dealerSearchCriteriaBuilderFactory,
         CollectionProcessorInterface $collectionProcessor,
-        DealerSearchResultsInterfaceFactory $dealerSearchResultsFactory
+        DealerSearchResultsInterfaceFactory $dealerSearchResultsFactory,
+        Name $filterName
     ) {
         $this->resourceModel = $resourceModel;
         $this->modelFactory = $modelFactory;
@@ -81,6 +88,7 @@ class DealerRepository implements DealerRepositoryInterface
         $this->dealerSearchCriteriaBuilderFactory = $dealerSearchCriteriaBuilderFactory;
         $this->collectionProcessor = $collectionProcessor;
         $this->dealerSearchResultsFactory = $dealerSearchResultsFactory;
+        $this->filterName = $filterName;
     }
 
     /**
@@ -163,6 +171,7 @@ class DealerRepository implements DealerRepositoryInterface
      */
     public function save(DealerInterface $dealer): void
     {
+        $dealer->setName($this->filterName->filter($dealer->getName()));
         $this->resourceModel->save($dealer);
     }
 

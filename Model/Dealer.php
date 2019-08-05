@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace Yireo\ExampleDealers\Model;
 
 use Magento\Framework\Model\AbstractModel;
-
 use Yireo\ExampleDealers\Api\Data\DealerInterface;
 use Yireo\ExampleDealers\Model\ResourceModel\Dealer as ResourceModel;
 
