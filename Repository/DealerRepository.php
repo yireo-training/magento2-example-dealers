@@ -18,8 +18,7 @@ use Yireo\ExampleDealers\Api\Data\DealerSearchResultsInterface;
 use Yireo\ExampleDealers\Api\Data\DealerSearchResultsInterfaceFactory;
 use Yireo\ExampleDealers\Api\DealerRepositoryInterface;
 use Yireo\ExampleDealers\Api\DealerSearchCriteriaBuilderInterface;
-
-use Yireo\ExampleDealers\Filter\Name;
+use Yireo\ExampleDealers\Filter\Name as FilterName;
 use Yireo\ExampleDealers\Model\ResourceModel\Dealer as ResourceModel;
 use Yireo\ExampleDealers\Model\ResourceModel\Dealer\CollectionFactory;
 use Yireo\ExampleDealers\Model\Dealer as Model;
@@ -56,10 +55,12 @@ class DealerRepository implements DealerRepositoryInterface
      * @var DealerSearchResultsInterfaceFactory
      */
     private $dealerSearchResultsFactory;
+
     /**
-     * @var Name
+     * @var FilterName
      */
     private $filterName;
+
     /**
      * @var TranslitUrl
      */
@@ -73,7 +74,7 @@ class DealerRepository implements DealerRepositoryInterface
      * @param DealerSearchCriteriaBuilderFactory $dealerSearchCriteriaBuilderFactory
      * @param CollectionProcessorInterface $collectionProcessor
      * @param DealerSearchResultsInterfaceFactory $dealerSearchResultsFactory
-     * @param Name $filterName
+     * @param FilterName $filterName
      * @param TranslitUrl $translitUrlFilter
      */
     public function __construct(
@@ -83,7 +84,7 @@ class DealerRepository implements DealerRepositoryInterface
         DealerSearchCriteriaBuilderFactory $dealerSearchCriteriaBuilderFactory,
         CollectionProcessorInterface $collectionProcessor,
         DealerSearchResultsInterfaceFactory $dealerSearchResultsFactory,
-        Name $filterName,
+        FilterName $filterName,
         TranslitUrl $translitUrlFilter
     ) {
         $this->resourceModel = $resourceModel;
