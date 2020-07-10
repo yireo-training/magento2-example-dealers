@@ -78,15 +78,18 @@ class RepositoryTest extends TestCase
         $this->assertSame($dealer->getId(), $newDealer->getId());
 
         $this->assertSame('Kermit', $newDealer->getName());
+        $this->assertSame('kermit', $newDealer->getUrlKey());
         $this->assertSame('Frog Street 1', $newDealer->getAddress());
         $this->assertSame('Green is nice', $newDealer->getDescription());
 
         $newDealer->setName('Kormot');
+        $newDealer->setUrlKey('kormot');
         $newDealer->setAddress('Sesame Street 42');
         $this->repository->save($newDealer);
 
         $newestDealer = $this->repository->getById((int)$dealer->getId());
         $this->assertSame('Kormot', $newestDealer->getName());
+        $this->assertSame('kormot', $newestDealer->getName());
         $this->assertSame('Sesame Street 42', $newestDealer->getAddress());
 
         $this->repository->delete($newestDealer);
@@ -98,14 +101,16 @@ class RepositoryTest extends TestCase
      * @param string $name
      * @param string $address
      * @param string $description
+     * @param string $urlKey
      * @return DealerInterface
      */
-    private function createDealer(string $name, string $address, string $description): DealerInterface
+    private function createDealer(string $name, string $address, string $description, string $urlKey = ''): DealerInterface
     {
         $dealer = $this->repository->getEmpty();
         $dealer->setName($name);
         $dealer->setAddress($address);
         $dealer->setDescription($description);
+        $dealer->setUrlKey($urlKey);
         $this->repository->save($dealer);
         return $dealer;
     }

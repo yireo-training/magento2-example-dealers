@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Yireo\ExampleDealers\Api\Data;
@@ -18,6 +19,17 @@ interface DealerInterface
      * @return int
      */
     public function setId($id);
+
+    /**
+     * @return string
+     */
+    public function getUrlKey(): string;
+
+    /**
+     * @param string $urlKey
+     * @return mixed
+     */
+    public function setUrlKey(string $urlKey);
 
     /**
      * @return string

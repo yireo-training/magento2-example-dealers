@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Yireo\ExampleDealers\Repository;
@@ -11,6 +12,7 @@ use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
 use Magento\Framework\Exception\AlreadyExistsException;
 use Magento\Framework\Exception\NoSuchEntityException;
 
+use Magento\Framework\Filter\TranslitUrl;
 use Yireo\ExampleDealers\Api\Data\DealerInterface;
 use Yireo\ExampleDealers\Api\Data\DealerSearchResultsInterface;
 use Yireo\ExampleDealers\Api\Data\DealerSearchResultsInterfaceFactory;
@@ -62,6 +64,10 @@ class DealerRepository implements DealerRepositoryInterface
      * @var Name
      */
     private $filterName;
+    /**
+     * @var TranslitUrl
+     */
+    private $translitUrlFilter;
 
     /**
      * DealerRepository constructor.
@@ -72,6 +78,7 @@ class DealerRepository implements DealerRepositoryInterface
      * @param CollectionProcessorInterface $collectionProcessor
      * @param DealerSearchResultsInterfaceFactory $dealerSearchResultsFactory
      * @param Name $filterName
+     * @param TranslitUrl $translitUrlFilter
      */
     public function __construct(
         ResourceModel $resourceModel,
@@ -80,7 +87,8 @@ class DealerRepository implements DealerRepositoryInterface
         DealerSearchCriteriaBuilderFactory $dealerSearchCriteriaBuilderFactory,
         CollectionProcessorInterface $collectionProcessor,
         DealerSearchResultsInterfaceFactory $dealerSearchResultsFactory,
-        Name $filterName
+        Name $filterName,
+        TranslitUrl $translitUrlFilter
     ) {
         $this->resourceModel = $resourceModel;
         $this->modelFactory = $modelFactory;
@@ -89,6 +97,7 @@ class DealerRepository implements DealerRepositoryInterface
         $this->collectionProcessor = $collectionProcessor;
         $this->dealerSearchResultsFactory = $dealerSearchResultsFactory;
         $this->filterName = $filterName;
+        $this->translitUrlFilter = $translitUrlFilter;
     }
 
     /**
@@ -172,6 +181,10 @@ class DealerRepository implements DealerRepositoryInterface
     public function save(DealerInterface $dealer): void
     {
         $dealer->setName($this->filterName->filter($dealer->getName()));
+        if (!$dealer->getUrlKey()) {
+            $dealer->setUrlKey($this->translitUrlFilter->filter($dealer->getName()));
+        }
+
         $this->resourceModel->save($dealer);
     }
 

@@ -3,6 +3,7 @@
     <table name="example_dealers" resource="default" engine="innodb" comment="Example listing of dealers">
         <column xsi:type="int" name="id" padding="11" unsigned="true" nullable="false" identity="true" comment="Dealer ID"/>
         <column xsi:type="smallint" name="store_id" padding="5" unsigned="true" nullable="false" default="0" comment="Store ID"/>
+        <column xsi:type="text" name="url_key" comment="URL Key"/>
         <column xsi:type="text" name="name" comment="Name"/>
         <column xsi:type="blob" name="address" comment="Address"/>
         <column xsi:type="blob" name="description" comment="Description"/>

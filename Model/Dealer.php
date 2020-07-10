@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Yireo\ExampleDealers\Model;
@@ -40,6 +41,27 @@ class Dealer extends AbstractModel implements DealerInterface
     public function setName(string $name)
     {
         $this->setData('name', $name);
+
+    }
+
+    /**
+     * Get the name
+     *
+     * @return string
+     */
+    public function getUrlKey(): string
+    {
+        return (string)$this->getData('url_key');
+    }
+
+    /**
+     * Set the name
+     *
+     * @param string $urlKey
+     */
+    public function setUrlKey(string $urlKey)
+    {
+        $this->setData('url_key', $urlKey);
     }
 
     /**
