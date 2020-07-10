@@ -10,10 +10,6 @@ use Magento\TestFramework\Helper\Bootstrap;
 
 use PHPUnit\Framework\TestCase;
 
-/**
- * Class ModuleTest
- * @package Yireo\ExampleDealers\Test\Integration
- */
 class ModuleTest extends TestCase
 {
     const MODULE_NAME = 'Yireo_ExampleDealers';

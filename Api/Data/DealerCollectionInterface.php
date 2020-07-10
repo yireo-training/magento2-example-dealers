@@ -3,10 +3,6 @@ declare(strict_types=1);
 
 namespace Yireo\ExampleDealers\Api\Data;
 
-/**
- * Interface DealerCollectionInterface
- * @package Yireo\ExampleDealers\Api\Data
- */
 interface DealerCollectionInterface
 {
     /**

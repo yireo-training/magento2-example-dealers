@@ -7,11 +7,6 @@ use Magento\Framework\Api\Search\SearchCriteriaInterface;
 use Yireo\ExampleDealers\Api\Data\DealerInterface;
 use Yireo\ExampleDealers\Api\Data\DealerSearchResultsInterface;
 
-/**
- * Interface DealerRepositoryInterface
- *
- * @package Yireo\ExampleDealers\Api
- */
 interface DealerRepositoryInterface
 {
     /**

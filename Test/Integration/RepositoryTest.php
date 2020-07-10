@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Yireo\ExampleDealers\Test\Integration;
@@ -12,10 +13,6 @@ use Yireo\ExampleDealers\Api\Data\DealerInterface;
 use Yireo\ExampleDealers\Api\DealerRepositoryInterface;
 use Yireo\ExampleDealers\Repository\DealerRepository;
 
-/**
- * Class ModuleTest
- * @package Yireo\ExampleDealers\Test\Integration
- */
 class RepositoryTest extends TestCase
 {
     /**
@@ -104,8 +101,12 @@ class RepositoryTest extends TestCase
      * @param string $urlKey
      * @return DealerInterface
      */
-    private function createDealer(string $name, string $address, string $description, string $urlKey = ''): DealerInterface
-    {
+    private function createDealer(
+        string $name,
+        string $address,
+        string $description,
+        string $urlKey = ''
+    ): DealerInterface {
         $dealer = $this->repository->getEmpty();
         $dealer->setName($name);
         $dealer->setAddress($address);

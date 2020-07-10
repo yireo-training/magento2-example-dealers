@@ -25,10 +25,6 @@ use Yireo\ExampleDealers\Model\ResourceModel\Dealer\CollectionFactory;
 use Yireo\ExampleDealers\Model\Dealer as Model;
 use Yireo\ExampleDealers\Model\DealerFactory as ModelFactory;
 
-/**
- * Class DealerRepository
- * @package Yireo\ExampleDealers\Model
- */
 class DealerRepository implements DealerRepositoryInterface
 {
     /**

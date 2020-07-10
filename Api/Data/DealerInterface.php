@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace Yireo\ExampleDealers\Api\Data;
 
-/**
- * Interface DealerInterface
- * @package Yireo\ExampleDealers\Api\Data
- */
 interface DealerInterface
 {
     /**
@@ -51,7 +47,6 @@ interface DealerInterface
      * @return mixed
      */
     public function setAddress(string $address);
-
 
     /**
      * @return string

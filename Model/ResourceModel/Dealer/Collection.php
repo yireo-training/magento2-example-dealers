@@ -9,11 +9,6 @@ use Yireo\ExampleDealers\Api\Data\DealerCollectionInterface;
 use Yireo\ExampleDealers\Model\Dealer as DealerModel;
 use Yireo\ExampleDealers\Model\ResourceModel\Dealer as DealerResourceModel;
 
-/**
- * Class Collection
- *
- * @package Yireo\ExampleDealers\Model\ResourceModel\Dealer
- */
 class Collection extends AbstractCollection implements DealerCollectionInterface
 {
     /**

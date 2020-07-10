@@ -8,11 +8,6 @@ use Magento\Framework\Model\AbstractModel;
 use Yireo\ExampleDealers\Api\Data\DealerInterface;
 use Yireo\ExampleDealers\Model\ResourceModel\Dealer as ResourceModel;
 
-/**
- * Class Dealer
- *
- * @package Yireo\ExampleDealers\Model
- */
 class Dealer extends AbstractModel implements DealerInterface
 {
     /**
@@ -41,7 +36,6 @@ class Dealer extends AbstractModel implements DealerInterface
     public function setName(string $name)
     {
         $this->setData('name', $name);
-
     }
 
     /**
