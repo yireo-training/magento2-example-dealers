@@ -22,6 +22,8 @@ jobs:
             MODULE_NAME: ${{ secrets.MODULE_NAME }}
             COMPOSER_NAME: ${{ secrets.COMPOSER_NAME }}
             CE_VERSION: 2.3.5
+        with:
+            magento_pre_install_script: .github/workflows/pre-composer-install.sh
 
   integration-tests:
     name: Magento 2 Integration Tests
@@ -44,4 +46,5 @@ jobs:
             MODULE_NAME: ${{ secrets.MODULE_NAME }}
             COMPOSER_NAME: ${{ secrets.COMPOSER_NAME }}
             CE_VERSION: 2.3.5
-
+        with:
+            magento_pre_install_script: .github/workflows/pre-composer-install.sh
