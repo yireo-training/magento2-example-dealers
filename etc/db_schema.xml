@@ -5,6 +5,7 @@
         <column xsi:type="smallint" name="store_id" padding="5" unsigned="true" nullable="false" default="0" comment="Store ID"/>
         <column xsi:type="text" name="name" comment="Name"/>
         <column xsi:type="blob" name="address" comment="Address"/>
+        <column xsi:type="blob" name="description" comment="Description"/>
         <column xsi:type="datetime" name="created_at" on_update="false" nullable="true" comment="Created at"/>
         <column xsi:type="datetime" name="modified_at" on_update="false" nullable="true" comment="Modified at"/>
 

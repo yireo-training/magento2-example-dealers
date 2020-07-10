@@ -61,4 +61,24 @@ class Dealer extends AbstractModel implements DealerInterface
     {
         $this->setData('address', $address);
     }
+
+    /**
+     * Get the name
+     *
+     * @return string
+     */
+    public function getDescription(): string
+    {
+        return (string)$this->getData('description');
+    }
+
+    /**
+     * Set the name
+     *
+     * @param string $description
+     */
+    public function setDescription(string $description)
+    {
+        $this->setData('description', $description);
+    }
 }

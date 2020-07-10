@@ -49,8 +49,9 @@ class RepositoryTest extends TestCase
         $items = $this->repository->getAll();
         $originalCount = count($items);
 
-        $this->createDealer('John Doe', 'Testing Street 1');
-        $this->createDealer('Jane Doe', 'Testing Street 2');
+        $this->createDealer('Jane Doe', 'Testing Street 2', 'My name is Jane');
+        $this->createDealer('John Doe', 'Testing Street 1', 'My name is John');
+
         $dealers = $this->repository->getAll();
         $this->assertCount($originalCount + 2, $dealers);
     }
@@ -67,7 +68,7 @@ class RepositoryTest extends TestCase
         $items = $this->repository->getAll();
         $originalCount = count($items);
 
-        $dealer = $this->createDealer('Kermit', 'Frog Street 1');
+        $dealer = $this->createDealer('Kermit', 'Frog Street 1', 'Green is nice');
         $dealers = $this->repository->getAll();
         $this->assertCount($originalCount + 1, $dealers);
 
@@ -78,6 +79,7 @@ class RepositoryTest extends TestCase
 
         $this->assertSame('Kermit', $newDealer->getName());
         $this->assertSame('Frog Street 1', $newDealer->getAddress());
+        $this->assertSame('Green is nice', $newDealer->getDescription());
 
         $newDealer->setName('Kormot');
         $newDealer->setAddress('Sesame Street 42');
@@ -95,13 +97,15 @@ class RepositoryTest extends TestCase
     /**
      * @param string $name
      * @param string $address
+     * @param string $description
      * @return DealerInterface
      */
-    private function createDealer(string $name, string $address): DealerInterface
+    private function createDealer(string $name, string $address, string $description): DealerInterface
     {
         $dealer = $this->repository->getEmpty();
         $dealer->setName($name);
         $dealer->setAddress($address);
+        $dealer->setDescription($description);
         $this->repository->save($dealer);
         return $dealer;
     }

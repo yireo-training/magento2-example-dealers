@@ -40,6 +40,18 @@ interface DealerInterface
      */
     public function setAddress(string $address);
 
+
+    /**
+     * @return string
+     */
+    public function getDescription(): string;
+
+    /**
+     * @param string $description
+     * @return mixed
+     */
+    public function setDescription(string $description);
+
     /**
      * @return array
      */
