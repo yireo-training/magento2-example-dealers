@@ -6,12 +6,13 @@ namespace Yireo\ExampleDealers\Repository;
 
 use Exception;
 
+use Magento\Framework\Api\FilterBuilder;
+use Magento\Framework\Api\FilterBuilderFactory;
+use Magento\Framework\Api\Search\SearchCriteriaBuilder;
 use Magento\Framework\Api\Search\SearchCriteriaInterface;
 use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
-
 use Magento\Framework\Exception\AlreadyExistsException;
 use Magento\Framework\Exception\NoSuchEntityException;
-
 use Magento\Framework\Filter\TranslitUrl;
 use Yireo\ExampleDealers\Api\Data\DealerInterface;
 use Yireo\ExampleDealers\Api\Data\DealerSearchResultsInterface;
@@ -67,6 +68,11 @@ class DealerRepository implements DealerRepositoryInterface
     private $translitUrlFilter;
 
     /**
+     * @var FilterBuilderFactory
+     */
+    private $filterBuilderFactory;
+
+    /**
      * DealerRepository constructor.
      * @param ResourceModel $resourceModel
      * @param ModelFactory $modelFactory
@@ -74,6 +80,7 @@ class DealerRepository implements DealerRepositoryInterface
      * @param DealerSearchCriteriaBuilderFactory $dealerSearchCriteriaBuilderFactory
      * @param CollectionProcessorInterface $collectionProcessor
      * @param DealerSearchResultsInterfaceFactory $dealerSearchResultsFactory
+     * @param FilterBuilderFactory $filterBuilderFactory
      * @param FilterName $filterName
      * @param TranslitUrl $translitUrlFilter
      */
@@ -84,6 +91,7 @@ class DealerRepository implements DealerRepositoryInterface
         DealerSearchCriteriaBuilderFactory $dealerSearchCriteriaBuilderFactory,
         CollectionProcessorInterface $collectionProcessor,
         DealerSearchResultsInterfaceFactory $dealerSearchResultsFactory,
+        FilterBuilderFactory $filterBuilderFactory,
         FilterName $filterName,
         TranslitUrl $translitUrlFilter
     ) {
@@ -95,6 +103,7 @@ class DealerRepository implements DealerRepositoryInterface
         $this->dealerSearchResultsFactory = $dealerSearchResultsFactory;
         $this->filterName = $filterName;
         $this->translitUrlFilter = $translitUrlFilter;
+        $this->filterBuilderFactory = $filterBuilderFactory;
     }
 
     /**
@@ -166,6 +175,19 @@ class DealerRepository implements DealerRepositoryInterface
     {
         $searchResult = $this->getSearchResults($searchCriteria);
         return $searchResult->getItems();
+    }
+
+    /**
+     * @param string $searchWord
+     * @param string $field
+     * @return DealerInterface[]
+     */
+    public function search(string $searchWord, string $field = 'name'): array
+    {
+        $searchCriteriaBuilder = $this->getSearchCriteriaBuilder();
+        $searchCriteriaBuilder->addFilter($field, $searchWord);
+        $searchCriteria = $searchCriteriaBuilder->create();
+        return $this->getItems($searchCriteria);
     }
 
     /**
