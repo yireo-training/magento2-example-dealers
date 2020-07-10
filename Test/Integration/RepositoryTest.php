@@ -86,7 +86,7 @@ class RepositoryTest extends TestCase
 
         $newestDealer = $this->repository->getById((int)$dealer->getId());
         $this->assertSame('Kormot', $newestDealer->getName());
-        $this->assertSame('kormot', $newestDealer->getName());
+        $this->assertSame('kormot', $newestDealer->getUrlKey());
         $this->assertSame('Sesame Street 42', $newestDealer->getAddress());
 
         $this->repository->delete($newestDealer);
